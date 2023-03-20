@@ -1,0 +1,53 @@
+------------------------------------------------------ BankApp -------------------------------------------------------
+
+
+This is a Windows console app that performs the following:
+
+1. Opens the Windows console and prompts user with the following:
+	- Welcomes the user to the bank app "winBank App" with a good welcome screen, then clears the console after the 
+	    welcome message.
+	- Asks if user is an existing customer or new.
+	- Accepts user response.
+	- Check from external file data base if user is existing.
+
+2. IF user is existing:
+	- Asks for identification and security clearance to access user account.
+	- Displays account information.
+	- Displays menu with viable transaction options user can perform and performs them.
+	- Asks if user wants to perform another transaction.
+	- If yes, loops 2. else breaks to 1.
+
+3. IF user is new:
+	- Requests for new user information and stores in database
+	- Displays menu with viable transaction options user can perform and performs them.  
+
+
+BANKAPP Members 
+
+Class Account
+Private:
+	1.balance - A double that holds the current account balance.
+	2.interestRate - A double that holds the interest rate for the period.
+	3.interest - A double that holds the interest earned for the current period.
+	4.transactions - An integer that holds the current number of transactions.
+	5.name - A string that holds the current name of the account.
+	6.number - An int that holds a randomly generated number for account
+Public:
+	1.Constructor - Takes arguments to be initially stored in the balance and
+                        interestRate members. The default value for the balance is zero and
+                        the default value for the interest rate is 0.045.
+	2.setInterestRate - Takes a double argument which is stored in the interestRate member.
+	3.makeDeposit - Takes a double argument, which is the amount of the deposit. This
+                        argument is added to balance.
+	4.withdraw - Takes a double argument which is the amount of the withdrawal. This
+                     value is subtracted from the balance, unless the withdrawal amount is
+                     greater than the balance. If this happens, the function reports an error.
+	5.calcInterest - Takes no arguments. This function calculates the amount of interest for
+			 the current period, stores this value in the interest member, and then
+			 adds it to the balance member.
+	6.getInterestRate - Returns the current interest rate (stored in the interestRate member).
+	7.getBalance - Returns the current balance (stored in the balance member).
+	8.getInterest - Returns the interest earned for the current period (stored in the
+			interest member).
+	9.getTransactions - Returns the number of transactions for the current period (stored in the
+                            transactions member).
