@@ -6,9 +6,9 @@ This is a Windows console app that performs the following:
 1. Opens the Windows console and prompts user with the following:
 	- Welcomes the user to the bank app "winBank App" with a good welcome screen, then clears the console after the 
 	    welcome message.
-	- Asks if user is an existing customer or new.
+	- Displays user actions options
 	- Accepts user response.
-	- Check from external file data base if user is existing.
+	//- Check from external file data base if user is existing.
 
 2. IF user is existing:
 	- Asks for identification and security clearance to access user account.

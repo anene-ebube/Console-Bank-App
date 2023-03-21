@@ -5,24 +5,21 @@
 #ifndef BANKAPP_ACCOUNT_H
 #define BANKAPP_ACCOUNT_H
 #include <string>
+const double intRate = 0.0045;
 
 class Account {
 private:
-    std::string accName;                // Account name.
-    unsigned int accNumber;      // Account number.
-    double balance;                // Account balance.
-    double interestRate;          // Interest rate for the period.
-    double interest;             // Interest earned during the period.
-    int transactions;           // Number of transactions
+    std::string accName;                            // Account name.
+    std::string accNumber;                         // Account number.
+    double balance;                               // Account balance.
+    double interestRate;                         // Interest rate for the period.
+    double interest;                            // Interest earned during the period.
+    unsigned short int transactions;           // Number of transactions
 
 public:
-    Account (std::string name = " ", double bal = 0)
-    {   accName = name;
-        accNumber = 0;
-        balance = bal;
-        interestRate = 0.045;
-        interest = 0;
-        transactions = 0; }
+    //Constructor:
+    Account (): accName(" "), accNumber(" "),
+        balance(0), interestRate(intRate), interest(0), transactions(0){}
 
     std::string setAccName ( std::string AccountName)
     { accName = AccountName; }

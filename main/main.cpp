@@ -12,13 +12,11 @@
 
 int main()
 {
-    std::fstream bankDataBase;     // file to store all customers' data.
-    displayWelcome();
+    displayWelcomeScreen();
+    displayTransactionMenu();
+    userInput();
 
-    std::string userInput ;
-    std::cout << "\nEnter Your Account number. If you are a new customer with us,\n"
-              << "input \" new \" to create a new account." << std::endl;
-    std::cin >> userInput;
+    std::fstream bankDataBase;     // file to store all customers' data.
 
     if (userInput == "new")
     {

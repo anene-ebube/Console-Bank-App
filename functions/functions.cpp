@@ -2,86 +2,115 @@
 // Created by USER on 2/17/2023.
 //
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include "Account.h"
 #include "functions.h"
-#include <sstream>
-#include <algorithm>
-#include <cstdint>
-#include <windows.h>
 
-void displayWelcome()
+void displayWelcomeScreen()
 {
-    auto stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    std::string str;
+    // Set the console color to white on blue background
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 15 );
 
-    CONSOLE_SCREEN_BUFFER_INFO oldcsbi{};
-    COORD coord{};
+    // Display the welcome message
+    std::cout << "=====================================" << '\n';
+    std::cout << "              WinBank                " << '\n';
+    std::cout << "=====================================" << '\n';
 
-// THIS WILL HELP TO EXIT THE OUTPUT LOOP.
-    std::string myString = "";
-    bool exit = 0;
-    std::cout << "Press ENTER to continue to the Main Menu after the Welcome page." << std::endl;
-    std::system("pause > 0");
+    // Wait for 3 seconds before clearing the console
+    Sleep(3000);
 
-    std::getline(std::cin, myString);
-    if(myString.length() != 0)
-        exit = 1;
-
-    do
-    {
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        GetConsoleScreenBufferInfo(stdout_handle, &csbi);
-        if (csbi.srWindow.Bottom != oldcsbi.srWindow.Bottom || csbi.srWindow.Right != oldcsbi.srWindow.Right)
-        {
-            std::fill(str.begin(), str.end(), ' ');
-            SetConsoleCursorPosition(stdout_handle, coord);
-            std::cout << str; // clear the old text
-            oldcsbi = csbi;
-            std::ostringstream s;
-
-            s << "******** Welcome to WinBank ******** \n";
-            str = s.str();
-            coord.X = (short)((csbi.srWindow.Right - str.size()) / 2);
-            coord.Y = (short)(csbi.srWindow.Bottom/2);
-            SetConsoleCursorPosition(stdout_handle, coord);
-            std::cout << str; // draw the new text
-        }
-        Sleep(1000);
-    }
-    while (exit == 0);
-
-    std::system("pause > 0");
+    // Clear the console
+    system("cls");
 }
-
-std::string userIn(std::string in)
-{
-    std::string userInput ;
-    std::cout << "\nEnter Your Account number. If you are a new customer with us,\n"
-              << "input \" new \" to create a new account." << std::endl;
-    std::cin >> userInput;
-    return userInput;
-}
-
-
 
 void displayTransactionMenu()
 {
     std::cout << "\n                    MENU                   "
               << "\n-------------------------------------------";
-    std::cout << "A) Display the account balance\n";
-    std::cout << "B) Display the number of transactions\n";
-    std::cout << "C) Display interest earned for this period\n";
-    std::cout << "D) Make a deposit\n";
-    std::cout << "E) Make a withdrawal\n";
-    std::cout << "F) Add interest for this period\n";
-    std::cout << "G) Exit the program\n\n";
-    std::cout << "Enter your choice: ";
+    std::cout << "A) Display account balance\n";
+    std::cout << "B) Make a deposit\n";
+    std::cout << "C) Make a withdrawal\n";
+    std::cout << "D) Add interest for this period\n";
+    std::cout << "E) Display number of completed transactions on the account\n";
+    std::cout << "F) Display interest earned for this period\n";
+    std::cout << "G) Create a new account\n";
+    std::cout << "H) Exit the program\n\n";
+    std::cout << ": ";
 }
 
+char convert_to_uppercase(char input_char)
+{
+    /*
+    Takes a single character as input and checks if it is a lowercase character.
+    If it is, converts it to uppercase and returns it.
+    */
+    if (std::isalpha(input_char) && std::islower(input_char)) {
+        return std::toupper(input_char);
+    }
+    else {
+        return input_char;
+    }
+}
 
+char userInput()
+{
+    bool showColumn = true;
+    char userInput;
 
+    while (true)
+    {
+    // Output the column mark with appropriate state
+    if (showColumn)
+    {
+    std::cout << ":\r" <<
+    std::flush;
+    }
+    else
+    {
+    std::cout << " \r" <<
+    std::flush;
+    }
 
+    // Wait for 500ms
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
+    // Toggle the state of the column mark
+        showColumn = !showColumn;
+
+    // Check if user input is available
+    if (_kbhit())
+    {
+    // Read the user input
+    userInput = _getch();
+    convert_to_uppercase(userInput);
+    if (userInput == 'A' || userInput == 'B' || userInput == 'C' || userInput == 'D' ||
+        userInput == 'E' || userInput == 'F' || userInput == 'G')
+    {
+        // Output the user input
+        std::cout << std::endl << "You entered: " << userInput <<
+                  std::endl;
+        return userInput;
+    }
+    else
+    {
+        if ( userInput == 'H') {return 0;}                                                     // Exit Program.
+        std::cout << "Sorry, You entered the wrong Option.\n"
+                  <<   "Try again\n";
+        system("cls");
+        continue;
+    }
+}
+}
+}
+
+void dataBaseHAndler()
+
+unsigned int DisplayAccountBalance(unsigned int accNum)
+{
+    bankDataBase.open("bankDataBase", std::ios::in | std::ios::binary)
+}
+
+createNewAccount()
+{
+    Account newAccount;
+
+}

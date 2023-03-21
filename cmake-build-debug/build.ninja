@@ -49,23 +49,23 @@ cmake_ninja_workdir = C$:/Users/USER/Documents/.CPP/BankApp/cmake-build-debug/
 
 build cmake_object_order_depends_target_BankApp: phony || CMakeFiles/BankApp.dir
 
-build CMakeFiles/BankApp.dir/main.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/main.cpp || cmake_object_order_depends_target_BankApp
-  DEP_FILE = CMakeFiles\BankApp.dir\main.cpp.obj.d
+build CMakeFiles/BankApp.dir/main/main.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/main/main.cpp || cmake_object_order_depends_target_BankApp
+  DEP_FILE = CMakeFiles\BankApp.dir\main\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\BankApp.dir
-  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir
+  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir\main
 
-build CMakeFiles/BankApp.dir/Account.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/Account.cpp || cmake_object_order_depends_target_BankApp
-  DEP_FILE = CMakeFiles\BankApp.dir\Account.cpp.obj.d
+build CMakeFiles/BankApp.dir/functions/functions.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/functions/functions.cpp || cmake_object_order_depends_target_BankApp
+  DEP_FILE = CMakeFiles\BankApp.dir\functions\functions.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\BankApp.dir
-  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir
+  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir\functions
 
-build CMakeFiles/BankApp.dir/functions.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/functions.cpp || cmake_object_order_depends_target_BankApp
-  DEP_FILE = CMakeFiles\BankApp.dir\functions.cpp.obj.d
+build CMakeFiles/BankApp.dir/class/Account.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/Users/USER/Documents/.CPP/BankApp/class/Account.cpp || cmake_object_order_depends_target_BankApp
+  DEP_FILE = CMakeFiles\BankApp.dir\class\Account.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\BankApp.dir
-  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir
+  OBJECT_FILE_DIR = CMakeFiles\BankApp.dir\class
 
 
 # =============================================================================
@@ -75,7 +75,7 @@ build CMakeFiles/BankApp.dir/functions.cpp.obj: CXX_COMPILER__BankApp_Debug C$:/
 #############################################
 # Link the executable BankApp.exe
 
-build BankApp.exe: CXX_EXECUTABLE_LINKER__BankApp_Debug CMakeFiles/BankApp.dir/main.cpp.obj CMakeFiles/BankApp.dir/Account.cpp.obj CMakeFiles/BankApp.dir/functions.cpp.obj
+build BankApp.exe: CXX_EXECUTABLE_LINKER__BankApp_Debug CMakeFiles/BankApp.dir/main/main.cpp.obj CMakeFiles/BankApp.dir/functions/functions.cpp.obj CMakeFiles/BankApp.dir/class/Account.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BankApp.dir
